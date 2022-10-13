@@ -1,7 +1,4 @@
 "use strict";
-// export enum Vocals {
-//   a, e, i, o, u
-// }
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Nokiafy = exports.StringToNokia = void 0;
 exports.StringToNokia = {
@@ -34,38 +31,45 @@ exports.StringToNokia = {
     ' ': '0'
 };
 class Nokiafy {
-    constructor(code) {
-        this.code = code;
+    constructor(_code) {
+        this._code = _code;
     }
-    static code(input) {
+    get value() {
+        return this._code;
+    }
+    code() {
         try {
-            Nokiafy.validate(input);
-            return input.split('').map((character) => {
+            this._code = this._code.split('').map((character) => {
                 const lowerCasedCharacter = character.toLowerCase();
                 return Nokiafy.getAlterations(character) + (exports.StringToNokia[lowerCasedCharacter] ? exports.StringToNokia[lowerCasedCharacter] : character);
             }).join(' ');
+            return this;
         }
         catch (e) {
             throw e;
         }
     }
-    static decode(code) {
+    decode() {
         const NokiaToString = Nokiafy.getDecodeDiccionary();
-        return code
+        this._code = this._code
             .split(' ')
             .map((character) => {
-            console.log('character', character);
-            console.log('NokiaToString[character]', NokiaToString[character]);
             return Nokiafy.hasAlteration(character) ?
                 Nokiafy.applyAlterations(character, NokiaToString[character.substring(1)]) :
                 NokiaToString[character] ? NokiaToString[character] : character;
         })
             .join('');
+        return this;
     }
-    static validate(input) {
-        if (!input.length) {
+    convert(sentence) {
+        // const Nokiafy.code(sentence)
+        return '';
+    }
+    validate() {
+        if (!this._code.length) {
             throw new Error("Sentence is required");
         }
+        return this;
     }
     static getAlterations(character) {
         let result = '';
@@ -89,7 +93,7 @@ class Nokiafy {
     }
     static getDecodeDiccionary() {
         return Object.entries(exports.StringToNokia).reduce((acc, value) => {
-            return Object.assign(Object.assign({}, acc), { [value[1]]: value[0] });
+            return Object.assign(Object.assign({}, acc), { [value[1]]: value[0].replace(/[aeiou]/gi, 'i') });
         }, {});
     }
 }
