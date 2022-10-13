@@ -64,11 +64,15 @@ describe("Nokiafy", () => {
     });
   });
 
-  // describe("Convert", () => {
-  //   it("should convert successfully", () => {
-  //     const sentence = 'DDD es basicamente estructurar carpetas';
-  //     const expected = 'DDD is bisiciminti istrictirir cirpitis';
-  //     expect(Nokiafy.convert(sentence)).toBe(expected);
-  //   });
-  // });
+  describe("Convert", () => {
+    it("should convert successfully", () => {
+      const sentence = 'DDD es basicamente estructurar carpetas';
+      const expected = 'DDD is bisiciminti istrictirir cirpitis';
+      expect(Nokiafy.convert(sentence)).toBe(expected);
+    });
+
+    it("should throw on empty sentence", () => {
+      expect(() => Nokiafy.convert('')).toThrowError("Sentence is required");
+    });
+  });
 });
