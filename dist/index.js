@@ -1,6 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Nyinyify = void 0;
+'use strict';
+
 class Nyinyify {
     constructor(_code) {
         this._code = _code;
@@ -98,4 +97,5 @@ class Nyinyify {
         }, {});
     }
 }
+
 exports.Nyinyify = Nyinyify;
