@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Nokiafy = void 0;
-class Nokiafy {
+exports.Nyinyify = void 0;
+class Nyinyify {
     constructor(_code) {
         this._code = _code;
         this.StringToNokia = {
@@ -38,10 +38,13 @@ class Nokiafy {
         return this._code;
     }
     code() {
-        this._code = this._code.split('').map((character) => {
+        this._code = this._code
+            .split('')
+            .map((character) => {
             const lowerCasedCharacter = character.toLowerCase();
             return this.setAlterations(character) + (this.StringToNokia[lowerCasedCharacter] ? this.StringToNokia[lowerCasedCharacter] : character);
-        }).join(' ');
+        })
+            .join(' ');
         return this;
     }
     decode() {
@@ -56,18 +59,18 @@ class Nokiafy {
             .join('');
         return this;
     }
-    static convert(sentence) {
-        return new Nokiafy(sentence)
-            .validate()
-            .code()
-            .decode()
-            .value;
-    }
     validate() {
         if (!this._code.length) {
             throw new Error("Sentence is required");
         }
         return this;
+    }
+    static convert(sentence) {
+        return new Nyinyify(sentence)
+            .validate()
+            .code()
+            .decode()
+            .value;
     }
     setAlterations(character) {
         let result = '';
@@ -95,4 +98,4 @@ class Nokiafy {
         }, {});
     }
 }
-exports.Nokiafy = Nokiafy;
+exports.Nyinyify = Nyinyify;

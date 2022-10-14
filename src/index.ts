@@ -1,4 +1,4 @@
-export class Nokiafy {
+export class Nyinyify {
   constructor(private _code: string) {}
 
   private StringToNokia: { [key: string]: string } = {
@@ -36,10 +36,13 @@ export class Nokiafy {
   }
 
   code() {
-    this._code = this._code.split('').map((character: string) => {
-      const lowerCasedCharacter = character.toLowerCase();
-      return this.setAlterations(character) + (this.StringToNokia[lowerCasedCharacter] ? this.StringToNokia[lowerCasedCharacter] : character)
-    }).join(' ');
+    this._code = this._code
+      .split('')
+      .map((character: string): string => {
+        const lowerCasedCharacter = character.toLowerCase();
+        return this.setAlterations(character) + (this.StringToNokia[lowerCasedCharacter] ? this.StringToNokia[lowerCasedCharacter] : character)
+      })
+      .join(' ');
     return this;
   }
 
@@ -47,7 +50,7 @@ export class Nokiafy {
     const NokiaToString = this.getDecodeDictionary();
     this._code = this._code
       .split(' ')
-      .map((character: string) => {
+      .map((character: string): string => {
         return this.hasAlteration(character) ?
           this.applyAlterations(character, NokiaToString[character.substring(1)]) :
           NokiaToString[character] ? NokiaToString[character] : character;
@@ -56,19 +59,19 @@ export class Nokiafy {
     return this;
   }
 
-  static convert(sentence: string): string | undefined {
-    return new Nokiafy(sentence)
-      .validate()
-      .code()
-      .decode()
-      .value;
-  }
-
   validate() {
     if (!this._code.length) {
       throw new Error("Sentence is required");
     }
     return this;
+  }
+
+  static convert(sentence: string): string {
+    return new Nyinyify(sentence)
+      .validate()
+      .code()
+      .decode()
+      .value;
   }
 
   private setAlterations(character: string): string {
