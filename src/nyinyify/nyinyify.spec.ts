@@ -1,5 +1,4 @@
-import {Nyinyify} from "./index";
-
+import {Nyinyify} from "./nyinyify";
 
 describe("Nyinyify", () => {
   describe("Validate", () => {

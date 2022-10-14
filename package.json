@@ -2,7 +2,6 @@
   "name": "@dbritobcn/nyinyify",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -11,6 +10,14 @@
   "keywords": [],
   "author": "David Brito <dbritof@gmail.com>",
   "license": "ISC",
+  "homepage": "https://github.com/dbritobcn/nyinyify#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbritobcn/nyinyify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dbritobcn/nyinyify/issues"
+  },
   "devDependencies": {
     "@types/jest": "^29.0.0",
     "jest": "^28.1.3",
