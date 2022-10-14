@@ -1,6 +1,4 @@
-'use strict';
-
-class Nyinyify {
+export class Nyinyify {
     constructor(_code) {
         this._code = _code;
         this.StringToNokia = {
@@ -97,5 +95,3 @@ class Nyinyify {
         }, {});
     }
 }
-
-exports.Nyinyify = Nyinyify;
