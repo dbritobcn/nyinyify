@@ -1,8 +1,9 @@
 {
   "name": "@dbritobcn/nyinyify",
-  "version": "1.0.4",
-  "description": "",
+  "version": "1.0.5",
+  "description": "Gives your texts a distinguished touch of repellency",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
@@ -12,6 +13,9 @@
     "version": "git add -A src",
     "postversion": "git push && git push ---tags"
   },
+  "files": [
+    "/lib"
+  ],
   "keywords": [],
   "author": "David Brito <dbritof@gmail.com>",
   "license": "ISC",
