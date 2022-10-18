@@ -6,7 +6,7 @@ const config = {
   input: 'src/index.ts',
   output: {
     dir: 'lib',
-    format: 'umd',
+    format: 'es',
   },
   plugins: [
     babel({babelHelpers: 'bundled'}),
