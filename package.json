@@ -16,7 +16,7 @@
   "files": [
     "/lib"
   ],
-  "keywords": [],
+  "keywords": ["typescript"],
   "author": "David Brito <dbritof@gmail.com>",
   "license": "ISC",
   "homepage": "https://github.com/dbritobcn/nyinyify#readme",
