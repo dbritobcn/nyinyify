@@ -1,6 +1,6 @@
 {
   "name": "@dbritobcn/nyinyify",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Gives your texts a distinguished touch of repellency",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,7 +16,7 @@
   "files": [
     "/lib"
   ],
-  "keywords": [],
+  "keywords": ["typescript"],
   "author": "David Brito <dbritof@gmail.com>",
   "license": "ISC",
   "homepage": "https://github.com/dbritobcn/nyinyify#readme",
